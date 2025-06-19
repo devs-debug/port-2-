@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devid Basnet | Aspiring AI & Web Developer</title>
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4D8BFF;
+            --accent: #FF6584;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            transition: background 0.5s ease;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 0 0 25px 25px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--accent);
+        }
+        
+        .typewriter h1 {
+            font-size: 3rem;
+            overflow: hidden;
+            border-right: .15em solid var(--accent);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .1em;
+            animation: 
+                typing 2.5s steps(30, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent); }
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .education-card {
+            border-top-color: var(--secondary);
+        }
+        
+        .skills-card {
+            border-top-color: var(--accent);
+            grid-column: span 2;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-top: 0;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .education-card h2::after {
+            background: var(--secondary);
+        }
+        
+        .skills-card h2::after {
+            background: var(--accent);
+        }
+        
+        .education-item {
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .education-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: calc(100% - 20px);
+            width: 2px;
+            background: var(--secondary);
+        }
+        
+        .education-item h3 {
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+        
+        .education-item .institution {
+            color: var(--secondary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .education-item .year {
+            background: rgba(77, 139, 255, 0.1);
+            color: var(--secondary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill {
+            background: white;
+            color: var(--dark);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 3px solid var(--secondary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+        }
+        
+        .skill:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .skill::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(77,139,255,0.1) 0%, rgba(77,139,255,0) 100%);
+            z-index: 0;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            box-shadow: 0 4px 15px rgba(77, 139, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 8px 20px rgba(77, 139, 255, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            background: var(--dark);
+            color: white;
+            border-radius: 25px 25px 0 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .social-link:hover {
+            color: white;
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-card {
+                grid-column: span 1;
+            }
+            
+            .typewriter h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="typewriter">
+                <h1>Devid Basnet</h1>
+            </div>
+            <p class="tagline">Aspiring AI & Web Developer | Tech Enthusiast</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="controls">
+            <button class="btn" id="emailBtn">
+                <i class="fas fa-paper-plane"></i> Email Me
+            </button>
+            <button class="btn btn-secondary" id="bgChangeBtn">
+                <i class="fas fa-palette"></i> Change Theme
+            </button>
+        </div>
+        
+        <div class="main-content">
+            <div class="card">
+                <h2>About Me</h2>
+                <p>Hello! I'm Devid Basnet, a passionate technology enthusiast currently pursuing my bachelor's degree in AI and Business. While I'm just starting my journey in web development, I'm deeply fascinated by how technology can solve real-world problems.</p>
+                <p>My curiosity drives me to constantly learn new skills and technologies. I enjoy the creative problem-solving aspects of coding and the satisfaction of turning ideas into functional digital experiences.</p>
+                <p>When I'm not studying or coding, you can find me exploring the latest tech trends, reading about artificial intelligence applications, or working on personal projects to enhance my skills.</p>
+            </div>
+            
+            <div class="card education-card">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <span class="institution">Xavier International College</span>
+                    <h3>High School Diploma</h3>
+                    <p>Major in Computer Science</p>
+                    <span class="year">2021 - 2023</span>
+                </div>
+                <div class="education-item">
+                    <span class="institution">Kimpo International University</span>
+                    <h3>Bachelor's Degree</h3>
+                    <p>AI and Business (Current Student)</p>
+                    <span class="year">2023 - Present</span>
+                </div>
+            </div>
+            
+            <div class="card skills-card">
+                <h2>My Skills</h2>
+                <div class="skills-container">
+                    <div class="skill">HTML5</div>
+                    <div class="skill">CSS3</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">Business Fundamentals</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <h3>Let's Connect!</h3>
+            <p>Feel free to reach out for collaborations or just to say hello</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>010-6876-9926</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>davidbasnet614@gmail.com</span>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/devid-basnet-2a4725370" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:davidbasnet614@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+            
+            <p>&copy; 2025 Devid Basnet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typing effect is handled by CSS animations
+        
+        // Email button functionality
+        document.getElementById('emailBtn').addEventListener('click', function() {
+            window.location.href = 'mailto:davidbasnet614@gmail.com';
+        });
+        
+        // Background changer functionality
+        const bgChangeBtn = document.getElementById('bgChangeBtn');
+        const body = document.body;
+        const backgrounds = [
+            'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+            'linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%)',
+            'linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%)',
+            'linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)',
+            'linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%)',
+            'linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%)'
